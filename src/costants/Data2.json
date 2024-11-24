@@ -2,6 +2,22 @@
     {
       "id":1,
       "name":"Research and development"
+    },
+    {
+      "id":2,
+      "name":"Data Analysis"
+    },
+    {
+      "id":3,
+      "name":"Web Developement"
+    },
+    {
+      "id":4,
+      "name":"Android Developement"
+    },
+    {
+      "id":5,
+      "name":"Data Science Developement"
     }
 
   ]

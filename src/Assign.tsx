@@ -1,64 +1,75 @@
-import { useEffect, useState } from 'react'
-import  Data  from './costants/Data1.json'
+import React, { useEffect, useState } from 'react'
+import Data from './costants/Data1.json'
 const Assign = () => {
-    const [Items, setItems] = useState([ 
-        ]);
-    const [StrItems, setStrItems] = useState("")
-    const handleAdd=()=>{
-        let newData={id:Items.length+1,name:StrItems}
-        setItems([...Items,newData])
-        setStrItems("")
-        }
-    const handleItems=(e)=>{
-        setStrItems(e.target.value)
-    }
-    const deleteItem = (id) => {
-        const newItems = Items.filter((item) => item.id !== id);
-        setItems(newItems);
-        console.log(newItems)
-      };
+    const [Name, setNames] = useState([]);
+    const [buttonName, setbuttonName] = useState("");
     useEffect(() => {
-        setItems(Data);
+        setNames(Data);
     }, []);
-    return (
+    const addItems=()=>{
+        const newItems={id:Name.length,name:buttonName};
+        console.log(Name)
+        setNames([...Name,newItems]);
+        setbuttonName("");
+
+    }
+   const DeleteItem=(id)=>{
+    const DeleteData=Name.filter((item)=>item.id!==id)
+    setNames(DeleteData)
+   }
+    const handleChange=(e)=>{
+        setbuttonName(e.target.value)
+    }
+  return (
     <>
-                <div className='grid  grid-cols-4 w-[60%] pt-2 ml-2'>
-              {
-                Items.map((items)=>{
-                    return(
-                        <>
-                        <div className='m-2'>
+  <h1 className=' my-4 text-gray-500 '>Assignee</h1>
+    <div className='flex  '>
+      <div className='flex  b-2 pt-2 '>
+  {
+    Name.length <4?
+    Name.map((data)=> (data.name !== "" && <div className='border-0  ' key={data.id+1}>
+      <div className="flex flex-row w-full items-center    border-gray-00 bg-gray-100 rounded-full m-1  ">
+      <img className="w-8 h-8 mr-2 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" alt="Jese image"></img>
+      <div className='pl-1 mx-2'>{data.name}</div>
+      <div className="flex items-center space-x-2 rtl:space-x-reverse">
+     <button className="text-sm mx-2 text-gray-700 "    onClick={() => DeleteItem(data.id)}>X</button>
+  </div>
 
-                        <div key={items.id} className='rounded-full    border border-gray-400 text-gray-500  flex justify-between  cursor-pointer p-2 items-center ml-2 w-full'>
-                        {items.name}
-                        <button className='text-xs'
-                  onMouseDown={(e)=>e.preventDefault()}
-                  onClick={() => deleteItem(items.id)}
-                  >
-                X
-                  </button>
-                  </div>
-                  </div>
-                
-                        </>
-                    )
-                })
-            }
-            </div>
+  </div>
+    </div>))
+:<>
+<div className="relative w-8 h-8">
+  <img className=" top-0 left-0 w-8 h-8 object-cover rounded-full" 
+       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" 
+       alt="Jese image"/>
+  <img className=" top-0 left-0 w-8 h-8 object-cover rounded-full opacity-75" 
+       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" 
+       alt="Jese image"/>
+</div>
 
-            <div className='w-[50%] text-right text-gray-700'>
-              <span onClick={() => {setItems([])}} >
-              X
-               </span>
-            </div>
 
-     
-        <div >
-              <input className='border-0 border-b-2 w-[50%]' onChange={handleItems}/>
-              <button className="rounded-full outline outline-offset-1 outline-1 px-3 py-1 m-4 text-xl ..." onClick={handleAdd}>+ </button>
+
+  
+</>
+  }
+      </div>
+
+      
+        <div className=' flex p-2  '>
+
+            <input  onChange={handleChange} className='outline-0 w-20 mb-2' value={buttonName}/>
+            <button onClick={addItems}  className='rounded-full w-10 h-10   border-gray-300 border-2  text-xl     ...'>+</button>
+            
         </div>
-    </>
+      </div>
+      </>
   )
 }
 
 export default Assign
+
+
+
+
+
+

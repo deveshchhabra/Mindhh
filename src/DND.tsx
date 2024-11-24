@@ -2,7 +2,7 @@ import DragNdrop from "./DragNdrop.tsx"
 const DND = () => {
   return (
     <>
-    <div className="border border-gray-800  border-dashed  border-radius  rounded-lg ">
+    <div className="border border-purple-900  border-dotted  border-radius  rounded-lg ">
         <DragNdrop
          />
          </div>
