@@ -5,23 +5,28 @@ import TaskList from "./TaskList"
 import ActiviesList from "./ActiviesList"
 import Button from "./Button"
 import Assign from "./Assign"
-// import Test from "./Test"
-// import AutoFixer from "./Not/AutoFixer"
+import Test from "./Test"
+import TestTaskList from "./TestTaskList"
 const Body = () => {
   return (
-    <div className="flex justify-between ">
+    <div className="flex justify-between divide-x ">
     <div className="w-[50%] grid grid-cols-1 justify-between m-6 p-6  ">
-         <ProjectDetails />
+         {/* <ProjectDetails />
          <Assign />
          <Note /> 
          <DND/> 
-         <ActiviesList />    
-         {/* <AutoFixer /> */}
+         <ActiviesList />      */}
        </div>
     <div className="w-[50%]  m-6 p-6">
         <Button />
         <TaskList />
-           {/* <Test /> */}
+        <div>
+    <div className="border-0 border-b-2 border-gray-200  border-dashed p-3 mx-5 ">
+    </div>
+    </div>
+
+          <TestTaskList />
+         {/* <Test /> */}
     </div>
           </div>
   )

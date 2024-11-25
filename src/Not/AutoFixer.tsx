@@ -75,7 +75,7 @@
 
 // export default Assign;
 import React, { useEffect, useState } from "react";
-import Data from "../costants/Data1.json";
+import Data from "../constants/Data1.json";
 
 const Assign = () => {
   const [items, setItems] = useState([]); // State for storing the items

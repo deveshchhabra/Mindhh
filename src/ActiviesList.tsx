@@ -9,7 +9,7 @@ const ActiviesList = () => {
     <div className='h-[60%] w-full pl-6  flex rounded-lg align-middle  '>
       {/* " focus:outline-none pl-2" */}
     
-    <img
+      <img
             className='rounded-full w-12 h-12 m-0   border-gray-400 border-2'
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&s"
           ></img>
@@ -20,7 +20,7 @@ const ActiviesList = () => {
             <div className="text-gray-400 pl-4"> 8hrs ago</div></div>
           <div className="text-gray-400 p-2  ml-4">Oct 10,2024 at 10:30 AM</div>
           <div className="flex items-center gap-2 ">
-            <input type="checkbox" className="peer w-5 h-5  border-gray-500 rounded-lg bg-cyan-400"
+            <input type="checkbox" className="peer w-5 h-5  border-gray-500  bg-cyan-400 rounded-full"
             id="checkbox" />
             <label htmlFor="checkbox " className="text-gray-400  peer-checked:line-through" >GridSystem</label>
              </div>
@@ -34,3 +34,9 @@ const ActiviesList = () => {
 }
 
 export default ActiviesList
+
+
+
+
+
+

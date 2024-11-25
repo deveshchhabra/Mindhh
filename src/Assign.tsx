@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Data from './costants/Data1.json'
+import Data from './constants/Data1.json'
 const Assign = () => {
     const [Name, setNames] = useState([]);
     const [buttonName, setbuttonName] = useState("");
@@ -22,9 +22,9 @@ const Assign = () => {
     }
   return (
     <>
-  <h1 className=' my-4 text-gray-500 '>Assignee</h1>
+  <h1 className=' my-4 text-gray-500 mb-2  pt-2 mt-2 '>Assignee</h1>
     <div className='flex  '>
-      <div className='flex  b-2 pt-2 '>
+      <div className='flex  b-2    '>
   {
     Name.length <4?
     Name.map((data)=> (data.name !== "" && <div className='border-0  ' key={data.id+1}>
@@ -38,13 +38,16 @@ const Assign = () => {
   </div>
     </div>))
 :<>
-<div className="relative w-8 h-8">
+<div className="relative flex w-8 h-8">
+  <div className='relative '>
   <img className=" top-0 left-0 w-8 h-8 object-cover rounded-full" 
        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" 
        alt="Jese image"/>
+       </div>
   <img className=" top-0 left-0 w-8 h-8 object-cover rounded-full opacity-75" 
        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" 
        alt="Jese image"/>
+       
 </div>
 
 
@@ -55,11 +58,11 @@ const Assign = () => {
       </div>
 
       
-        <div className=' flex p-2  '>
+        <div className=' flex   '>
 
             <input  onChange={handleChange} className='outline-0 w-20 mb-2' value={buttonName}/>
             <button onClick={addItems}  className='rounded-full w-10 h-10   border-gray-300 border-2  text-xl     ...'>+</button>
-            
+          
         </div>
       </div>
       </>

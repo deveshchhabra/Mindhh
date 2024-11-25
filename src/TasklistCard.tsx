@@ -2,9 +2,23 @@ import { useState } from "react"
 import ImageComponent from "./SvgImages/ImageComponent";
 import Delete from "./SvgImages/Delete";
 import Edit from "./SvgImages/Edit";
+import DeleteIcon from "./SvgImages/Delete";
 
-const TasklistCard = () => {
-  const [Menue, setMenue] = useState(true);
+const TasklistCard = ({ data, onDelete,   isEditing,setEditingId, newName,setNewName,onSave}) => {
+  const handleEditClick = () => {
+    setEditingId(data.id); // Set this item as being edited
+    setNewName(data.name); // Populate input with the current name
+  };
+
+  const handleSaveClick = () => {
+    onSave(data.id, newName); // Save changes via parent callback
+  };
+
+  const handleCancelClick = () => {
+    setEditingId(null); // Cancel edit mode
+    setNewName(""); // Clear the input box
+  };
+  const [Menue, setMenue] = useState(false);
   return (
     <div className='flex  '>
     {/*  */}
@@ -22,24 +36,23 @@ const TasklistCard = () => {
 
     {Menue ? (
 
-<div className='z-30 absolute scrollbar-thin border py-2 border-gray-200 shadow    scrollbar-thumb-slate-200      mr-5  bg-white rounded-lg scroll-m-0 w-48  ' 
+<div className='z-30 absolute scrollbar-thin border py-2 border-gray-200 shadow    scrollbar-thumb-slate-200      mr-5  bg-white rounded-lg scroll-m-0 w-36 ' 
               >     
    
-<label className="cursor-pointer"   >
-        <input type="checkbox"  className="peer sr-only" name="pricing" />
-        <div className=" rounded-md bg-white p-5  peer-checked:text-green-600  peer-checked:ring-offset-2">
+   <label className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
+              onClick={() => {setMenue(true)}}>
+        <input type="radio" className="peer sr-only" name="pricing" />
+        <div className="rounded-md bg-white p-5  peer-checked:text-green-600  peer-checked:ring-offset-2">
           
           
-   <div className="flex items-center" onMouseDown={e => e.preventDefault()}
-               onClick={() => {setMenue(true)}} >
+   <div className="flex items-center" >
           
-              <div className="" onMouseDown={e => e.preventDefault()}
-               onClick={() => {setMenue(true)}}><ImageComponent/></div>
-              <p className="text-xs pl-4 ">To do</p>
+              <div onMouseDown={e => e.preventDefault()} onClick={() => {setMenue(true)}}><ImageComponent/></div>
+              <p className="text-xs pl-5"  onMouseDown={e => e.preventDefault()} onClick={() => {setMenue(true)}}>To-do</p>
           </div>
           </div>
       </label>
-      <label className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
+   <label className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
               onClick={() => {setMenue(true)}}>
         <input type="radio" className="peer sr-only" name="pricing" />
         <div className="rounded-md bg-white p-5  peer-checked:text-green-600  peer-checked:ring-offset-2">
@@ -67,16 +80,28 @@ const TasklistCard = () => {
           </div>
           </div>
       </label>
-      <div className="flex items-center pl-4">
-       
-        <button  className="text-xs ml-2"  onMouseDown={e => e.preventDefault()}
-              onClick={() => {setMenue(true)}}><Edit/>Edit</button>
+      <div className="flex items-center pl-5">
+      {isEditing ? (
+        <>
+          <button className="pr-2 mr-2" onClick={handleSaveClick}>Save</button>
+          <button onClick={handleCancelClick}>Cancel</button>
+        </>
+      ) : (
+        <button onClick={handleEditClick}>
+          <Edit/>Edit</button>
+      )}
+      
         </div>
        
       
-   <div className="flex items-center  pl-4 ">
-        <button  className="text-xs flex  m-2 "  onMouseDown={e => e.preventDefault()}
-              onClick={() => {setMenue(true)}}><Delete/>Delete</button>
+   <div className="flex items-center  pl-2 ">
+        <button  className="text-xs   m-2 "  onMouseDown={e => e.preventDefault()}
+              // onClick={() => {setMenue(true)}}
+              onClick={() => onDelete(data.id)}
+              >
+            <Delete />
+                Delete
+                </button>
        
         </div>
       </div>
@@ -90,3 +115,5 @@ const TasklistCard = () => {
 }
 
 export default TasklistCard
+
+
