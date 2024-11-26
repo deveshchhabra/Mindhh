@@ -46,13 +46,14 @@ export const ProjectDetails = () => {
   
   {/* <span className="mx-4 text-gray-500">to</span> */}
 
-  <div className='flex justify-between w-full py-6 '>
-  <div className='flex  flex-wrap mb-2  pt-2 mt-2 w-2/5 border-0 border-b-2 rounded '>
-  <DatePicker className="outline-none" selected={startDate} onChange={(date) => setStartDate(date)} />
-    <Calender />
-    </div>
+  <div className='flex justify-between w-full '>
+  
     <div className='flex mb-2  pt-2 mt-2 w-2/5 border-0 border-b-2 '>
   <DatePicker className="outline-none" selected={EndDate} onChange={(date) => setStartDate(date)} />
+    <Calender />
+    </div>
+    <div className='flex  flex-wrap mb-2  pt-2 mt-2 w-2/5 border-0 border-b-2 rounded '>
+  <DatePicker className="outline-none" selected={startDate} onChange={(date) => setStartDate(date)} />
     <Calender />
     </div>
 </div>

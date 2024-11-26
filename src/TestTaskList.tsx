@@ -181,13 +181,61 @@
 
 // export default DeleteCard;
 
+// import React, { useState } from "react";
+// import Data from "./constants/Data2.json";
+// import TasklistCard from "./TestTaksCard";
+
+// const DeleteCard = () => {
+//   const [items, setItems] = useState(Data); // List of items
+//   const [selectedItem, setSelectedItem] = useState(null); // The selected item for rendering
+
+//   const handleUpdateStatus = (id, status) => {
+//     setItems(
+//       items.map((item) =>
+//         item.id === id ? { ...item, status } : item
+//       )
+//     );
+//     // Find and set the selected item with the updated status
+//     const updatedItem = items.find((item) => item.id === id);
+//     setSelectedItem({ ...updatedItem, status });
+//   };
+
+//   return (
+//     <div>
+//       <h1>Selected Status: {selectedItem?.status || "None"}</h1> {/* Display selected item's status */}
+//       {/* Render only the selected item */}
+//       {selectedItem ? (
+//         <div key={selectedItem.id} style={{ marginBottom: "10px" }}>
+//           <TasklistCard
+//             item={selectedItem}
+//             onUpdateStatus={handleUpdateStatus}
+//             selectedStatus={selectedItem.status}
+//           />
+//         </div>
+//       ) : (
+//         // If no item is selected, render all items
+//         items.map((item) => (
+//           <div key={item.id} style={{ marginBottom: "10px" }}>
+//             <TasklistCard
+//               item={item}
+//               onUpdateStatus={handleUpdateStatus}
+//               selectedStatus={item.status}
+//             />
+//           </div>
+//         ))
+//       )}
+//     </div>
+//   );
+// };
+
+// export default DeleteCard;
 import React, { useState } from "react";
 import Data from "./constants/Data2.json";
 import TasklistCard from "./TestTaksCard";
 
 const DeleteCard = () => {
   const [items, setItems] = useState(Data); // List of items
-  const [selectedItem, setSelectedItem] = useState(null); // The selected item for rendering
+  const [statuses, setStatuses] = useState({}); // Track statuses for each task
 
   const handleUpdateStatus = (id, status) => {
     setItems(
@@ -195,35 +243,34 @@ const DeleteCard = () => {
         item.id === id ? { ...item, status } : item
       )
     );
-    // Find and set the selected item with the updated status
-    const updatedItem = items.find((item) => item.id === id);
-    setSelectedItem({ ...updatedItem, status });
+
+    setStatuses((prevStatuses) => ({
+      ...prevStatuses,
+      [id]: status,
+    }));
   };
 
   return (
     <div>
-      <h1>Selected Status: {selectedItem?.status || "None"}</h1> {/* Display selected item's status */}
-      {/* Render only the selected item */}
-      {selectedItem ? (
-        <div key={selectedItem.id} style={{ marginBottom: "10px" }}>
+      <h1>Selected Statuses:</h1>
+      <ul>
+        {Object.entries(statuses).map(([id, status]) => {
+          const task = items.find((item) => item.id.toString() === id);
+          return (
+            <li key={id}>
+              <strong>Status:</strong> {status} - <strong>Task:</strong> {task?.name || "Unknown"}
+            </li>
+          );
+        })}
+      </ul>
+      {items.map((item) => (
+        <div key={item.id} style={{ marginBottom: "10px" }}>
           <TasklistCard
-            item={selectedItem}
+            item={item}
             onUpdateStatus={handleUpdateStatus}
-            selectedStatus={selectedItem.status}
           />
         </div>
-      ) : (
-        // If no item is selected, render all items
-        items.map((item) => (
-          <div key={item.id} style={{ marginBottom: "10px" }}>
-            <TasklistCard
-              item={item}
-              onUpdateStatus={handleUpdateStatus}
-              selectedStatus={item.status}
-            />
-          </div>
-        ))
-      )}
+      ))}
     </div>
   );
 };
