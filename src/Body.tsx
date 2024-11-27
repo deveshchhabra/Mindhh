@@ -18,15 +18,15 @@ const Body = () => {
          <ActiviesList />     
        </div>
     <div className="w-[50%]  m-6 p-6">
-        {/* <Button />
-        <TaskList /> */}
+        <Button />
+        <TaskList />
         <div>
     <div className="border-0 border-b-2 border-gray-200  border-dashed p-3 mx-5 ">
     </div>
     </div>
 
-          {/* <TestTaskList /> */}
-         <Test />
+          <TestTaskList />
+         {/* <Test /> */}
     </div>
           </div>
   )

@@ -36,8 +36,7 @@ const TasklistCard = ({ data, onDelete,   isEditing,setEditingId, newName,setNew
 
     {Menue ? (
 
-<div className='z-30 absolute scrollbar-thin border py-2 border-gray-200 shadow    scrollbar-thumb-slate-200      mr-5  bg-white rounded-lg scroll-m-0 w-36 ' 
-              >     
+<div className='z-10 absolute scrollbar-thin border py-2 border-gray-200 shadow    scrollbar-thumb-slate-200      mr-5  bg-white rounded-lg scroll-m-0 w-36 ' >  
    
    <label className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
               onClick={() => {setMenue(true)}}>

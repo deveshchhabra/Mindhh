@@ -23,7 +23,7 @@ const AutoFixer = () => {
           onBlur={() => setMenue(false)}
           >
 
-<div className="flex  ml-1">
+<div className="flex pl-2">
              <h1 className=" text-blue-950 size-1 text-xl  ">+</h1>
             <div className=" pl-2 ml-2 text-gray-400">Add/Create new task</div>
             </div>

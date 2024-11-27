@@ -258,7 +258,7 @@ const DeleteCard = () => {
           const task = items.find((item) => item.id.toString() === id);
           return (
             <li key={id}>
-              <strong>Status:</strong> {status} - <strong>Task:</strong> {task?.name || "Unknown"}
+              <strong>Status:</strong> {status} 
             </li>
           );
         })}

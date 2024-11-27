@@ -17,10 +17,10 @@ const TasklistCard = ({ item, onUpdateStatus }) => {
           Todo
         </button>
         <button
-          onClick={() => handleLabelClick("To-Do")}
-          disabled={item.status === "To-Do"}
+          onClick={() => handleLabelClick("Doing")}
+          disabled={item.status === "Doing"}
         >
-          To-Do
+          Doing
         </button>
         <button
           onClick={() => handleLabelClick("Done")}
