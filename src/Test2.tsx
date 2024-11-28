@@ -1,30 +1,38 @@
-import React from "react";
+import React, { useState } from 'react';
 
-const Assignee = () => {
-  const users = [
-    { id: 1, name: "User 1", img: "https://via.placeholder.com/50" },
-    { id: 2, name: "User 2", img: "https://via.placeholder.com/50" },
-    { id: 3, name: "User 3", img: "https://via.placeholder.com/50" },
-  ];
+const RadioButtonWithMenu: React.FC = () => {
+  const [menu, setMenu] = useState(false);
 
   return (
-    <div className="flex flex-col items-start p-4">
-      <h2 className="text-lg font-semibold mb-2">Assignee</h2>
-      <div className="flex items-center space-x-2">
-        {users.map((user) => (
-          <img
-            key={user.id}
-            src={user.img}
-            alt={user.name}
-            className="w-12 h-12 rounded-full border border-gray-300"
-          />
-        ))}
-        <div className="w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-700 rounded-full text-xl border border-gray-300">
-          3+
+    <label className="cursor-pointer" onMouseDown={(e) => e.preventDefault()} onClick={() => setMenu(true)}>
+      <input
+        type="radio"
+        className="peer sr-only"
+        name="pricing"
+      />
+      <div className="rounded-md bg-white p-5 peer-checked:text-green-600 peer-checked:ring-offset-2 peer-checked:ring-2 peer-checked:ring-green-600">
+        <div className="flex items-center">
+          {/* Circular icon */}
+          <div
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={() => setMenu(true)}
+            className="w-6 h-6 rounded-full bg-gray-400 peer-checked:bg-gray-600 flex items-center justify-center"
+          >
+            {/* You can add any icon inside the circle */}
+          </div>
+
+          {/* Text label */}
+          <p
+            className="text-xs pl-5"
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={() => setMenu(true)}
+          >
+            Done
+          </p>
         </div>
       </div>
-    </div>
+    </label>
   );
 };
 
-export default Assignee;
+export default RadioButtonWithMenu;

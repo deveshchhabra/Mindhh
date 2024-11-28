@@ -6,7 +6,7 @@ import ActiviesList from "./ActiviesList"
 import Button from "./Button"
 import Assign from "./Assign"
 import Test from "./Test"
-import TestTaskList from "./TestTaskList"
+// import TestTaskList from "./TestTaskList"
 const Body = () => {
   return (
     <div className="flex justify-between divide-x ">
@@ -25,7 +25,7 @@ const Body = () => {
     </div>
     </div>
 
-          <TestTaskList />
+          {/* <TestTaskList /> */}
          {/* <Test /> */}
     </div>
           </div>

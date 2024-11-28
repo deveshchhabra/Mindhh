@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Data from './constants/Data2.json'
 import TasklistCard from './TasklistCard'
 import ImageComponent from './SvgImages/ImageComponent'
+import Todo from './SvgImages/Todo'
+import Done from './SvgImages/Done'
+import Doing from './SvgImages/Doing'
 const TaskList = () => {
   const [Items, setItems] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -48,7 +51,7 @@ const TaskList = () => {
           <div className='grid grid-cols-2 w-full  rounded-lg p-1 h-28 px-2 mb-4 gap-4  place-content-between outline outline-gray-200 text-xs'>
             <div className='block'>
            <div className='flex  '>
-<ImageComponent/>
+<Done/>
             {editingId === data.id ? (
             <input
               type="text"

@@ -8,11 +8,13 @@ const Assign = () => {
         setNames(Data);
     }, []);
     const addItems=()=>{
-        const newItems={id:Name.length,name:buttonName};
-        console.log(Name)
+if(buttonName!=="" &&buttonName!==null){
+      const newItems={id:Name.length,name:buttonName};
         setNames([...Name,newItems]);
         setbuttonName("");
-
+}else {
+  console.log("error")
+}
     }
    const DeleteItem=(id)=>{
     const DeleteData=Name.filter((item)=>item.id!==id)
@@ -27,7 +29,7 @@ const Assign = () => {
   return (
     <>
   <h1 className=' my-4 text-gray-500 mb-2  pt-2 mt-2 '>Assignee</h1>
-    <div className='flex  justify-between'>
+    <div className='flex '>
       <div className='flex  b-2 z-30 '>
   {!ShowAll &&
     Name.length <4?
@@ -56,7 +58,7 @@ const Assign = () => {
    </>
     )
 }
-{Name.length!=="" &&!ShowAll?<button className="text-xl  ml-2 cursor-pointer text-gray-500 pl-2" onClick={toggleShowAll}>
+{!ShowAll?<button className="text-xl  ml-2 cursor-pointer text-gray-500 pl-2" onClick={toggleShowAll}>
                  {`${Name.length-1}+`}  items & more click here
                </button>:<button className="text-xl  ml-2 cursor-pointer text-gray-500 pl-2" onClick={toggleShowAll}>
                  {`${Name.length-1 }+`} items & close here 
@@ -91,7 +93,7 @@ const Assign = () => {
          </div>
 
       
-         <div className=' flex  '>
+         <div className=' flex pl-4 '>
 
              <input  onChange={handleChange} className='outline-0 w-20 mb-2' value={buttonName}/>
              <button onClick={addItems}  className='rounded-full w-10 h-10   border-gray-300 border-2  text-xl     ...'>+</button>
