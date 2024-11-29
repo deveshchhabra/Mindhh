@@ -7,7 +7,6 @@ const TasklistCard = ({ item, onUpdateStatus }) => {
 
   return (
     <div>
-      <h3>{item.name}</h3> {/* Display item name */}
       <div>
         {/* Render the 3 labels (Todo, To-Do, Done) */}
         <button

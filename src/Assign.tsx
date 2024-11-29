@@ -30,19 +30,23 @@ if(buttonName!=="" &&buttonName!==null){
     <>
   <h1 className=' my-4 text-gray-500 mb-2  pt-2 mt-2 '>Assignee</h1>
     <div className='flex '>
-      <div className='flex  b-2 z-30 '>
+      <div className='flex  b-2 x-30  '>
   {!ShowAll &&
     Name.length <4?
-   ( Name.map((data)=> (data.name !==null && data.name !=="" && <div className='border-0  z-30' key={data.id}>
-      <div className="flex flex-row w-full items-center    border-gray-00 bg-gray-100 rounded-full m-1  "  key={data.id}>
-      <img className="w-8 h-8 mr-2 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" alt="Jese image"></img>
-      <div className='pl-1 mx-2'>{data.name}</div>
-      <div className="flex items-center space-x-2 rtl:space-x-reverse">
-     <button className="text-sm mx-2 text-gray-700 "    onClick={() => DeleteItem(data.id)}>X</button>
+   ( Name.map((data)=> (data.name !==null && data.name !=="" &&
+   
+      <div className="flex w-full m-1  items-center place-content-around  border-gray-00 bg-gray-100 rounded-full   "  key={data.id}>
+           <div className='flex items-center flex-row flex-nowrap text-sm'>
+      <img className="w-8 z-10 h-8  rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" alt="Jese image"></img>
+   <div className='text-xs flex '>{data.name}</div>
+   </div>
+      {/* rtl:space-x-reverse */}
+      <div className="">
+     <button className="text-xs  text-gray-500 py-1 px-4   "    onClick={() => DeleteItem(data.id)}>X</button>
   </div>
 
   </div>
-    </div>)))
+    )))
 :(<div className='flex'>
 {Name.slice(0,3).map((data)=>
 <>
@@ -93,9 +97,9 @@ if(buttonName!=="" &&buttonName!==null){
          </div>
 
       
-         <div className=' flex pl-4 '>
+         <div className=' flex relative pl-2 '>
 
-             <input  onChange={handleChange} className='outline-0 w-20 mb-2' value={buttonName}/>
+             <input  onChange={handleChange} className='outline-0 w-20 mb-2 ' value={buttonName}/>
              <button onClick={addItems}  className='rounded-full w-10 h-10   border-gray-300 border-2  text-xl     ...'>+</button>
           
          </div>

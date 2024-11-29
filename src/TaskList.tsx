@@ -5,10 +5,27 @@ import ImageComponent from './SvgImages/ImageComponent'
 import Todo from './SvgImages/Todo'
 import Done from './SvgImages/Done'
 import Doing from './SvgImages/Doing'
+import Null from './SvgImages/NullSvg'
+
 const TaskList = () => {
   const [Items, setItems] = useState([]);
+
   const [editingId, setEditingId] = useState(null);
   const [newName, setNewName] = useState("");
+  const getSvg=(status)=>{
+    if(status=='Doing'){
+      return <Doing isHovered={true} isClicked={true}/>
+    }
+    else if(status=='Todo'){
+      return <Todo  isSelected={true} />
+    }
+    else if(status=='Done'){
+      return   <div className=" rounded-md bg-white text-green-600  "><Done/></div>
+    }
+    else {
+      return <Null />
+    }
+  }
 
   const getColor=(level)=>{
     if(level=='low'){
@@ -34,7 +51,14 @@ const TaskList = () => {
     setEditingId(null); // Exit edit mode
     setNewName(""); // Clear the input box
   };
+  const UpdateStatus=(id,status)=>{
+    setItems(
+      Items.map((item) =>
+        item.id === id ? { ...item, status } : item
+      )
+    );
 
+  }
   useEffect(() => {
     
    setItems(Data);
@@ -50,8 +74,9 @@ const TaskList = () => {
           <>
           <div className='grid grid-cols-2 w-full  rounded-lg p-1 h-28 px-2 mb-4 gap-4  place-content-between outline outline-gray-200 text-xs'>
             <div className='block'>
-           <div className='flex  '>
-<Done/>
+           <div className='flex   '>
+{/* <Done/> */}
+    {getSvg(data.status)}
             {editingId === data.id ? (
             <input
               type="text"
@@ -60,15 +85,16 @@ const TaskList = () => {
               placeholder="Edit name"
             />
           ) : (
-           <div className='pl-2'>{data.name}</div>
+           <div className='pl-1'>{data.name}</div>
           )}
           </div>
-            <div className={`ml-8 pl-2 rounded ${getColor(data.level)} w-10`} >{data.level}</div>
+            <div className={`ml-4 pl-3 rounded ${getColor(data.level)} w-10`} >{data.level}</div>
           </div>
 
         <div>
         <div  className=' flex flex-row-reverse '> 
      <TasklistCard   data={data}
+                  onStatusChange={UpdateStatus}
                   isEditing={editingId === data.id}
                   setEditingId={setEditingId}
                   newName={newName}

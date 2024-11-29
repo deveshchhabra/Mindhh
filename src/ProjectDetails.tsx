@@ -11,7 +11,12 @@ export const ProjectDetails = () => {
   const [StartDate, setStartDate] = useState(null);
   const [EndDate, setEndDate] = useState(null);
   const [Error, setError] = useState("");
+  const [ProjectDetails, setProjectDetails] = useState("");
+  const [ProjectName, setProjectName] = useState("");
+  const [Email, setEmail] = useState("");
   const [SelectedBox, setSelectedBox] = useState("");
+  const [SelectedBox1, setSelectedBox1] = useState("");
+
   const handleEndDateChange=(date)=>{
     if(StartDate && date<StartDate){
       setError("Data is not valid ")
@@ -27,28 +32,44 @@ export const ProjectDetails = () => {
     <>
       <h1 className="font-bold text-black text-2xl rounded-lg mb-4 pb-2 bottom-2">Project Details</h1>
 
-      {/* Project Name */}
+
+
+
+
       <div className="relative pb-2 w-full flex">
         <input type="text" id="project"
-        className="peer px-3 py-2 w-full rounded-md border-0 border-b-2 focus-ring-0
-        focus:bg-white focus:outline outline-blue-300"
-        placeholder="" />
-        <label htmlFor="project" className="text-gray-500 absolute text-sm  bg-white left-3 top-1/2 transform -translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:text-xs peer-focus:text-blue-400 transition-all">Project Name</label>
+        className="peer px-3 py-2 w-full rounded-lg border-0 border-b-2 focus:ring-0 focus:bg-white focus:outline outline-blue-300 mt-2 "
+        placeholder=""
+        value={ProjectDetails}
+        onChange={(e)=>setProjectDetails(e.target.value)}
+        />
+        <label htmlFor="project" className={`text-gray-500 absolute text-xs bg-white left-3 transition-all  peer-focus:top-0 duration-300 ease-in-out ${
+            ProjectDetails
+              ? "top-0 text-xs text-blue-500"
+              : "top-1/2 transform -translate-y-1/2 text-blue-500"
+          }`}>Project Name</label>
        
       </div>
 
+      
       {/* Client Name and Email */}
       <div className="flex justify-between w-full my-4">
       <div className="relative w-[40%] m-2">
   <input
     type="text"
     id="Name"
-    className="peer px-3 py-2 w-full rounded-lg border-0 border-b-2 focus:ring-0  focus:bg-white focus:outline outline-blue-300 "
+    className="peer px-3 py-2 rounded-lg border-0 border-b-2 focus:ring-0  focus:bg-white focus:outline outline-blue-300 mt-2"
     placeholder=""
+    value={ProjectName}
+    onChange={(e)=>setProjectName(e.target.value)}
   />
   <label
     htmlFor="Name"
-    className="text-gray-500 absolute text-sm  bg-white left-3 top-1/2 transform -translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:text-xs peer-focus:text-blue-500 transition-all duration-300 ease-in-out"
+    className={`text-gray-500 absolute text-xs bg-white left-3 transition-all  peer-focus:top-0 duration-300 ease-in-out ${
+      ProjectName
+        ? "top-0 text-xs text-blue-500"
+        : "top-1/2 transform -translate-y-1/2 text-blue-500"
+    }`}
   >
     Client Name
   </label>
@@ -61,12 +82,18 @@ export const ProjectDetails = () => {
   <input
     type="email"
     id="email"
-    className="peer px-3 py-2 w-full rounded-lg border-0 border-b-2 focus:ring-0  focus:bg-white focus:outline outline-blue-300 "
+    className="peer px-3 py-2 w-full rounded-lg border-0 border-b-2 focus:ring-0  focus:bg-white focus:outline outline-blue-300 mt-2"
+    value={Email}
+    onChange={(e)=>setEmail(e.target.value)}
     placeholder=""
   />
   <label
     htmlFor="email"
-    className="text-gray-500 absolute text-sm  bg-white left-3 top-1/2 transform -translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:text-xs peer-focus:text-blue-500 transition-all duration-300 ease-in-out outline-blue-300 "
+    className={`text-gray-500 absolute text-xs bg-white left-3 transition-all  peer-focus:top-0 duration-300 ease-in-out ${
+      Email
+        ? "top-0 text-xs text-blue-500"
+        : "top-1/2 transform -translate-y-1/2 text-blue-500"
+    }`}
   >
     Client Email
   </label>
@@ -128,30 +155,54 @@ export const ProjectDetails = () => {
       <div className="relative rounded-lg border-0 border-b-2 w-2/5 flex">
         <select
           id="serviceType"
-          className="peer w-full text-gray-500 hover:outline outline-blue-300 focus:outline rounded-lg px-3 py-3"
-        >
-          <option value="ServiceType" disabled selected>
+       value={SelectedBox1}
+       onChange={(e)=>setSelectedBox1(e.target.value)}
+          className="peer mt-2  left-3 pl-2 py-3 text-sm w-full bg-transparent rounded-lg border-0 focus:ring-0 focus:outline outline-blue-300 "
+       
+       
+       >
+          <option value="" disabled selected>
             Service Type
           </option>
           <option value="Development">Development</option>
           <option value="Consulting">Consulting</option>
           <option value="Support">Support</option>
         </select>
-        <label className="absolute bg-white text-gray-500  left-3 top-1/2 p-2 transform -translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:text-xs peer-focus:text-blue-500 transition-all duration-300 ease-in-out">Service Type</label>
+        <label className={`text-gray-500 absolute text-xm  bg-white left-3 transition-all duration-300 ease-in-out ${
+              SelectedBox1
+                ? "top-0 text-xs text-blue-500"
+                : "top-1/2 transform -translate-y-1/2"
+            }`}>Service Type</label>
         </div>
         <div className="relative rounded-lg border-0 border-b-2 w-2/5 flex">
+        
         <select
-          id="serviceType"
-          className="peer w-full text-gray-500 hover:outline outline-blue-300 focus:outline rounded-lg px-3 py-3"
-        >
-          <option value="ServiceType" disabled selected>
-            Service Type
-          </option>
-          <option value="Development">Development</option>
-          <option value="Consulting">Consulting</option>
-          <option value="Support">Support</option>
-        </select>
-        <label className="absolute bg-white text-gray-500  left-3 top-1/2 p-2 transform -translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:text-xs peer-focus:text-blue-500 transition-all duration-300 ease-in-out">Service Type</label>
+            id="SelectBox"
+            value={SelectedBox}
+            onChange={(e) => setSelectedBox(e.target.value)}
+            className="peer mt-2  left-3 py-3 pl-2 items-center text-sm w-full bg-transparent rounded-lg border-0 focus:ring-0 focus:outline outline-blue-300 "
+          >
+            <option value="" disabled>
+              Department Type
+            </option>
+            <option value="Consulting">Frontend</option>
+            <option value="Software">Backend</option>
+            <option value="Support">Support</option>
+            <option value="Support">Data</option>
+
+          </select>
+
+          {/* Floating Label */}
+          <label
+            htmlFor="SelectBox"
+            className={`text-gray-500 absolute text-xm  bg-white left-3 transition-all duration-300 ease-in-out ${
+              SelectedBox
+                ? "top-0 text-xs text-blue-500"
+                : "top-1/2 transform -translate-y-1/2"
+            }`}
+          >
+            Department Type
+          </label>
         </div>
 
         
