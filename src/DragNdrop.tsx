@@ -19,13 +19,11 @@ const DragNdrop = () => {
           }
 
       }
-      console.log(files)
     })
     if(!fileLimit)setUploadFiles(Uploaded)
   }
   const handleEvent=(e)=>{
     const chooseFiles=Array.prototype.slice.call(e.target.files)
-    console.log(chooseFiles)
     handleUploads(chooseFiles)
   }
 

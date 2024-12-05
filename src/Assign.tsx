@@ -29,7 +29,7 @@ if(buttonName!=="" &&buttonName!==null){
   return (
     <>
   <h1 className=' my-4 text-gray-500 mb-2  pt-2 mt-2 '>Assignee</h1>
-    <div className='flex '>
+    <div className='flex outline outline-1 rounded outline-gray-300 p-2'>
       <div className='flex  b-2 x-30  '>
   {!ShowAll &&
     Name.length <4?
@@ -47,7 +47,7 @@ if(buttonName!=="" &&buttonName!==null){
 
   </div>
     )))
-:(<div className='flex'>
+:(<div className='flex mx-4'>
 {Name.slice(0,3).map((data)=>
 <>
        <img
@@ -74,7 +74,7 @@ if(buttonName!=="" &&buttonName!==null){
     
     {
   ShowAll ? 
-   <div className='card absolute  max-h-full m-16  bg-white z-30  border-2 w-[20%] border-gray-300  grid grid-col-2 justify-between scrollbar-thin scrollbar-track-slate-50 scrollbar-thumb-slate-200 rounded-md'>
+   <div className='card absolute  max-h-full m-16  bg-white z-30  border-2 w-[20%] border-gray-300  grid grid-col-2 justify-between scrollbar-thin scrollbar-track-slate-50 scrollbar-thumb-slate-200 rounded-md '>
 
 
 {

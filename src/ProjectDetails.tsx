@@ -53,12 +53,12 @@ export const ProjectDetails = () => {
 
       
       {/* Client Name and Email */}
-      <div className="flex justify-between w-full my-4">
-      <div className="relative w-[40%] m-2">
+      <div className="flex justify-between  my-4">
+      <div className="relative w-[45%] m-2 ">
   <input
     type="text"
     id="Name"
-    className="peer px-3 py-2 rounded-lg border-0 border-b-2 focus:ring-0  focus:bg-white focus:outline outline-blue-300 mt-2"
+    className="peer px-3 py-2 rounded-lg border-0 border-b-2 w-full focus:ring-0  focus:bg-white focus:outline outline-blue-300 mt-2"
     placeholder=""
     value={ProjectName}
     onChange={(e)=>setProjectName(e.target.value)}
@@ -78,7 +78,7 @@ export const ProjectDetails = () => {
        
 
 
-        <div className="relative w-[40%] m-2">
+        <div className="relative  m-2 w-[42%] ">
   <input
     type="email"
     id="email"
@@ -100,13 +100,10 @@ export const ProjectDetails = () => {
 </div>
 
       </div>
-    
-
-
-    <div className="flex justify-between w-full z-30">
-      <div className="flex relative rounded-lg w-2/5  ml-2 border-b-2 ">
+      <div className="flex justify-between w-full z-30">
+      <div className="flex relative rounded-lg w-[45%]  ml-2 border-b-2 focus:outline outline-blue-300 ">
         {/* DatePicker container */}
-        <div className=" relative flex items-center w-full p-1 focus:outline outline-blue-300 ">
+        <div className=" relative flex items-center w-full p-1  ">
           <DatePicker
             id="Name"
             selected={StartDate}
@@ -126,11 +123,11 @@ export const ProjectDetails = () => {
           </label>
         </div>
       </div>
-      <div className="relative flex   rounded-ld w-[40%] pl-2">
+      <div className="relative flex   rounded-ld w-[45%] pl-2 focus:outline outline-blue-300">
       <div className="relative flex items-center w-full border-b-2">
       
       <DatePicker id="datePicker"
-      className="px-3 py-2 w-full  rounded-lg border-0 focus:ring-0 focus:bg-white focus:outline outline-blue-300"
+      className="px-3 py-2 w-full  rounded-lg border-0 focus:ring-0 focus:bg-white "
           
       placeholderText=""  selected={EndDate} onChange={handleEndDateChange}
       minDate={StartDate ||new Date()}
@@ -146,27 +143,27 @@ export const ProjectDetails = () => {
             }`}>End DATE</label>
       </div>
     </div>
- 
+
 
 
 
    
     <div className="flex justify-between w-full py-2 my-2 ml-2 ">
-      <div className="relative rounded-lg border-0 border-b-2 w-2/5 flex">
+      <div className="relative rounded-lg border-0 border-b-2 w-[45%] flex">
         <select
           id="serviceType"
-       value={SelectedBox1}
+       defaultValue={SelectedBox1}
        onChange={(e)=>setSelectedBox1(e.target.value)}
           className="peer mt-2  left-3 pl-2 py-3 text-sm w-full bg-transparent rounded-lg border-0 focus:ring-0 focus:outline outline-blue-300 "
        
        
        >
-          <option value="" disabled selected>
+          <option  disabled>
             Service Type
           </option>
-          <option value="Development">Development</option>
-          <option value="Consulting">Consulting</option>
-          <option value="Support">Support</option>
+          <option defaultValue="Development">Development</option>
+          <option defaultValue="Consulting">Consulting</option>
+          <option defaultValue="Support">Support</option>
         </select>
         <label className={`text-gray-500 absolute text-xm  bg-white left-3 transition-all duration-300 ease-in-out ${
               SelectedBox1
@@ -174,21 +171,21 @@ export const ProjectDetails = () => {
                 : "top-1/2 transform -translate-y-1/2"
             }`}>Service Type</label>
         </div>
-        <div className="relative rounded-lg border-0 border-b-2 w-2/5 flex">
+        <div className="relative rounded-lg border-0 border-b-2 w-[45%] flex">
         
         <select
             id="SelectBox"
-            value={SelectedBox}
+            defaultValue={SelectedBox}
             onChange={(e) => setSelectedBox(e.target.value)}
             className="peer mt-2  left-3 py-3 pl-2 items-center text-sm w-full bg-transparent rounded-lg border-0 focus:ring-0 focus:outline outline-blue-300 "
           >
-            <option value="" disabled>
+            <option defaultValue="" disabled>
               Department Type
             </option>
-            <option value="Consulting">Frontend</option>
-            <option value="Software">Backend</option>
-            <option value="Support">Support</option>
-            <option value="Support">Data</option>
+            <option defaultValue="Consulting">Frontend</option>
+            <option defaultValue="Software">Backend</option>
+            <option defaultValue="Support">Support</option>
+            <option defaultValue="Support">Data</option>
 
           </select>
 

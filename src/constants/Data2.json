@@ -1,41 +1,40 @@
-[
-  {
-    "id":1,
-    "name":"Research and development",
-    "level":"mid",
-    "status":"null"
+[ {
+  "id":1,
+  "name":"Research and development",
+  "level":"mid",
+  "status":null
 
-  },
-  {
-    "id":2,
-    "name":"Data Analysis",
-    "level":"high",
-    "status":"null"
-
-
-  },
-  {
-    "id":3,
-    "name":"Web Developement",
-    "level":"low",
-    "status":"null"
-
-  },
-  {
-    "id":4,
-    "name":"Android Developement",
-    "level":"mid",
-    "status":"null"
+},
+{
+  "id":2,
+  "name":"Data Analysis",
+  "level":"high",
+  "status":null
 
 
-  },
-  {
-    "id":5,
-    "name":"Data Science Developement",
-    "level":"high",
-    "status":"null"
+},
+{
+  "id":3,
+  "name":"Web Developement",
+  "level":"low",
+  "status":null
+
+},
+{
+  "id":4,
+  "name":"Android Developement",
+  "level":"mid",
+  "status":null
 
 
-  }
+},
+{
+  "id":5,
+  "name":"Data Science Developement",
+  "level":"high",
+  "status":null
 
+
+}
+  
 ]

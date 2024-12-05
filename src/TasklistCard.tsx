@@ -4,9 +4,8 @@ import Delete from "./SvgImages/Delete";
 import Edit from "./SvgImages/Edit";
 import DeleteIcon from "./SvgImages/Delete";
 import Done from "./SvgImages/Done";
-import Doing from "./SvgImages/Doing"
+import Doing from "./SvgImages/DOing"
 import Todo from "./SvgImages/Todo";
-import Test from "./SvgImages/Doing"
 
 const TasklistCard = ({ data, onStatusChange, onDelete,   isEditing,setEditingId, newName,setNewName,onSave}) => {
   const {id,status}=data;
@@ -32,10 +31,10 @@ const TasklistCard = ({ data, onStatusChange, onDelete,   isEditing,setEditingId
   };
   const [Menue, setMenue] = useState(false);
   return (
-    <div className='flex  '>
+    <div className='flex ' key={data.id}>
     {/*  */}
     <button
-     className=" hover:bg-gray-100  font-semibold mr-8 " 
+     className=" hover:bg-gray-100 text-lg  font-semibold mr-8 ease-in-out " 
       onFocus={() => setMenue(true)}
       onBlur={() => setMenue(false)}
       >
@@ -50,14 +49,14 @@ const TasklistCard = ({ data, onStatusChange, onDelete,   isEditing,setEditingId
 
 <div className='z-10 absolute scrollbar-thin border  border-gray-200 shadow    scrollbar-thumb-slate-200      mr-5  bg-white rounded-lg scroll-m-0 w-36 ' >  
 
-<label className="cursor-pointer pl-6"  onMouseDown={e => e.preventDefault()}
+<label key="Todo" className="cursor-pointer pl-6"  onMouseDown={e => e.preventDefault()}
               onClick={() => {setMenue(true);
                 
               }}>      
           
        
 
-   <div className="flex items-center p-4" onClick={() => {setMenue(true)}}  onClick={() => {
+   <div className="flex items-center p-4"  onClick={() => {
                 onStatusChange(id, "Todo");
            
                 setMenue(true);
@@ -71,7 +70,7 @@ const TasklistCard = ({ data, onStatusChange, onDelete,   isEditing,setEditingId
        
       </label>
 
-      <label className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
+      <label key="doing" className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
               onClick={() => {setMenue(true)}} >
         <input type="radio" className="peer sr-only" name="pricing" />
         <div className=" rounded-md bg-white  text-green-200 peer-checked:text-green-600  peer-checked:ring-offset-2">
@@ -90,21 +89,22 @@ const TasklistCard = ({ data, onStatusChange, onDelete,   isEditing,setEditingId
                 onStatusChange(id, "Doing");}}
            
               
-              ><Test isHovered={isHovered} isClicked={isClicked}/>
+              ><Doing isHovered={isHovered} isClicked={isClicked}/>
               <div className="text-xs text-black pl-2"  onMouseDown={e => e.preventDefault()} onClick={() => {setMenue(true)}}>Doing</div>
           </div>
           </div>
           </div>
       </label>
   
-      <label className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
+      <label key="done" className="cursor-pointer"  onMouseDown={e => e.preventDefault()}
               onClick={() => {setMenue(true)}} >
         <input type="radio" className="peer sr-only" name="pricing" />
         <div className=" rounded-md bg-white  text-green-200 peer-checked:text-green-600  ">
           
           
    <div className="flex items-center p-4"  onMouseDown={e => e.preventDefault()}
-              onClick={() => {setMenue(true)}}  onClick={() => {
+             
+             onClick={() => {
                 onStatusChange(id, "Done");
                 setMenue(true);
               }}

@@ -71,10 +71,12 @@ const TaskList = () => {
       Items.map((data)=>{
         
         return (
-          <>
-          <div className='grid grid-cols-2 w-full  rounded-lg p-1 h-28 px-2 mb-4 gap-4  place-content-between outline outline-gray-200 text-xs'>
-            <div className='block'>
-           <div className='flex   '>
+           <div
+          className="grid grid-cols-2 w-full rounded-lg p-1 h-28 px-2 mb-4 gap-4 place-content-between outline outline-gray-200 text-xs" key={data.id}
+         // Ensure `data.id` is unique
+        >
+          <div className='block'>
+           <div className='flex' >
 {/* <Done/> */}
     {getSvg(data.status)}
             {editingId === data.id ? (
@@ -89,11 +91,13 @@ const TaskList = () => {
           )}
           </div>
             <div className={`ml-4 pl-3 rounded ${getColor(data.level)} w-10`} >{data.level}</div>
-          </div>
+          </div> 
 
-        <div>
+        
         <div  className=' flex flex-row-reverse '> 
-     <TasklistCard   data={data}
+     <TasklistCard  
+      key={data.id}
+     data={data}
                   onStatusChange={UpdateStatus}
                   isEditing={editingId === data.id}
                   setEditingId={setEditingId}
@@ -103,7 +107,7 @@ const TaskList = () => {
                   onEditingId={editingId}
                   onDelete={handleDelete}
                   />
-         </div> </div>
+         </div> 
          <div className='p-2 flex '>
    <img
   className='rounded-full w-10 h-10 m-0   border-gray-400 border-2'
@@ -124,7 +128,6 @@ const TaskList = () => {
        
 
   
-         </>
          )
        })
      }

@@ -29,7 +29,6 @@
 import React from 'react'
 
 const Todo = ({isSelected}) => {
-  {console.log(isSelected)}
   return (
 
     <div>

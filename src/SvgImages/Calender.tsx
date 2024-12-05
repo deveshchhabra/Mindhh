@@ -2,7 +2,7 @@
 const Calender = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="calendar">
-    <g fill="none" fill-rule="evenodd" stroke="#200E32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="translate(3 2)">
+    <g fill="none" fillRule="evenodd" stroke="#200E32" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" transform="translate(3 2)">
       <line x1=".093" x2="17.917" y1="7.404" y2="7.404"></line>
       <line x1="13.442" x2="13.451" y1="11.31" y2="11.31"></line>
       <line x1="9.005" x2="9.014" y1="11.31" y2="11.31"></line>
