@@ -40,7 +40,7 @@ const DragNdrop = () => {
 
     <label htmlFor="fileUpload" className="file-upload-label   p-10 rounded-lg flex flex-col items-center space-y-4 cursor-pointer">
  
-  <div  className="bg-purple-400 p-3 rounded-lg">
+    <div  className="bg-purple-400 p-3 rounded-lg">
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
       viewBox="0 0 32 32" 

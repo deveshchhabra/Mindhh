@@ -1,12 +1,11 @@
-import { ProjectDetails } from "./ProjectDetails"
-import Note from "./Note"
-import DND from "./DND"
-import TaskList from "./TaskList"
-import ActiviesList from "./ActiviesList"
-import Button from "./Button"
-import Assign from "./Assign"
-// import Test from "./Test2"
-// import TestTaskList from "./TestTaskList"
+import { ProjectDetails } from "./components/ProjectDetails"
+import Note from "./components/Note"
+import DND from "./components/DND"
+import TaskList from "./components/TaskList"
+import ActiviesList from "./components/ActiviesList"
+import Button from "./components/Button"
+import Assign from "./components/Assign"
+import Test from "./Test"
 const Body = () => {
   return (
     <div className="flex justify-between divide-x ">
@@ -21,12 +20,11 @@ const Body = () => {
         <Button />
         <TaskList />
         <div>
-    <div className="border-0 border-b-2 border-gray-200  border-dashed p-3 mx-5 ">
-    </div>
+        <div className="border-0 border-b-2 border-gray-200  border-dashed p-3 mx-5 ">
+        </div>
     </div>
 
-          {/* <TestTaskList /> */}
-         {/* <Test /> */}
+        {/* <Test /> */}
     </div>
           </div>
   )

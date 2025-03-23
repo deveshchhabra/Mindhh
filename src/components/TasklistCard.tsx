@@ -1,11 +1,10 @@
 import { useState } from "react"
 import ImageComponent from "./SvgImages/ImageComponent";
-import Delete from "./SvgImages/Delete";
-import Edit from "./SvgImages/Edit";
-import DeleteIcon from "./SvgImages/Delete";
-import Done from "./SvgImages/Done";
-import Doing from "./SvgImages/DOing"
-import Todo from "./SvgImages/Todo";
+import Delete from "../SvgImages/Delete";
+import Edit from "../SvgImages/Edit";
+import Done from "../SvgImages/Done";
+import Doing from "../SvgImages/DOing"
+import Todo from "../SvgImages/Todo";
 
 const TasklistCard = ({ data, onStatusChange, onDelete,   isEditing,setEditingId, newName,setNewName,onSave}) => {
   const {id,status}=data;

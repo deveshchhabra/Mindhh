@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Data from './constants/Data1.json'
+import Data from '../constants/Data1.json'
 const Assign = () => {
     const [Name, setNames] = useState([]);
     const [buttonName, setbuttonName] = useState("");
@@ -37,7 +37,7 @@ if(buttonName!=="" &&buttonName!==null){
    
       <div className="flex w-full m-1  items-center place-content-around  border-gray-00 bg-gray-100 rounded-full   "  key={data.id}>
            <div className='flex items-center flex-row flex-nowrap text-sm'>
-      <img className="w-8 z-10 h-8  rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" alt="Jese image"></img>
+           <img className="w-8 z-10 h-8  rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5QDzt-JYNhuLn7Mqchny1cc1YNoqjTtN2g&s" alt="Jese image"></img>
    <div className='text-xs flex '>{data.name}</div>
    </div>
       {/* rtl:space-x-reverse */}

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Data from './constants/Data2.json'
+import Data from '../constants/Data2.json'
 import TasklistCard from './TasklistCard'
 import ImageComponent from './SvgImages/ImageComponent'
-import Todo from './SvgImages/Todo'
-import Done from './SvgImages/Done'
-import Doing from './SvgImages/Doing'
-import Null from './SvgImages/NullSvg'
+import Todo from '../SvgImages/Todo'
+import Done from '../SvgImages/Done'
+import Doing from '../SvgImages/Doing'
+import Null from '../SvgImages/NullSvg'
 
 const TaskList = () => {
   const [Items, setItems] = useState([]);

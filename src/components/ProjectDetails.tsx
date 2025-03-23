@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Calender from "./SvgImages/Calender";
+import Calender from "../SvgImages/Calender";
 
 export const ProjectDetails = () => {
   const [StartDate, setStartDate] = useState(null);
@@ -194,7 +194,7 @@ export const ProjectDetails = () => {
             htmlFor="SelectBox"
             className={`text-gray-500 absolute text-xm  bg-white left-3 transition-all duration-300 ease-in-out ${
               SelectedBox
-                ? "top-0 text-xs text-blue-500"
+                ? "top-0 text-xs text-blue-500 bg"
                 : "top-1/2 transform -translate-y-1/2"
             }`}
           >
